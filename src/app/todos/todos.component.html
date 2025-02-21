@@ -1,0 +1,16 @@
+<main class="flex justify-center items-start mt-10">
+    <mat-card appearance="outlined">
+        <mat-card-title>My Todos List</mat-card-title>
+        <div class="flex gap-3 items-center justify-start">
+            <button mat-button class="success" (click)="openAddDialog()">Add New</button>
+        </div>
+        @for (todo of todoItems(); track todo.id) {
+        <app-todo-item
+            [todo]="todo"
+            (onCheckboxClicked)="handleUpdateTodo($event)"
+            (onDeleteButtonClicked)="handleDeleteTodo($event)"
+            (onEditButtonClickedd)="openEditDialog($event)"
+        />
+        }
+    </mat-card>
+</main>
